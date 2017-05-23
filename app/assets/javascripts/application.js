@@ -11,5 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-
+//= require vue
+//= require vue-router (optional)
+//= require vue-resource (optional)
+//= require vuex (optional)
 //= require_tree .
