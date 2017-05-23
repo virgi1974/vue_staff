@@ -12,3 +12,12 @@
 #   "created_at"=>Time.now,
 #   "updated_at"=>Time.now)
 # end
+
+User.all.each do |user|
+
+  user.favorites.create("url"=> "http://#{user.id.to_s}",
+  "short_description" => "short description #{user.id.to_s}",
+  "long_description"=> "long description #{user.id.to_s}",
+  )
+
+end
