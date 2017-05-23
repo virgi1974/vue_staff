@@ -5,6 +5,22 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>inside</h1>
+  <h1>FAVORITES</h1>
+  <div id="favorites">
+    <table>
+      <thead>
+        <th>url</th>
+        <th>short_description</th>
+        <th>long_description</th>
+      </thead>
+      <tbody>
+        <tr v-for="favorite in favorites">
+          <td>{{ favorite.url }}</td>
+          <td>{{ favorite.short_description }}</td>
+          <td>{{ favorite.long_description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
