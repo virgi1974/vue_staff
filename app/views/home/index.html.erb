@@ -5,22 +5,30 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>FAVORITES</h1>
-  <div id="favorites">
-    <table>
-      <thead>
-        <th>url</th>
-        <th>short_description</th>
-        <th>long_description</th>
-      </thead>
-      <tbody>
-        <tr v-for="favorite in favorites">
-          <td>{{ favorite.url }}</td>
-          <td>{{ favorite.short_description }}</td>
-          <td>{{ favorite.long_description }}</td>
-        </tr>
-      </tbody>
-    </table>
+
+  <div class="jumbotron">
+    <h1 class="display-3 text-center">FAVORITE URLS</h1>
+  </div>
+
+  <div class="container">
+    
+    <div id="favorites">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-inverse">
+          <th class="text-center">url</th>
+          <th class="text-center">short_description</th>
+          <th class="text-center">long_description</th>
+        </thead>
+        <tbody>
+          <tr v-for="favorite in favorites">
+            <td class="text-center">{{ favorite.url }}</td>
+            <td class="text-center">{{ favorite.short_description }}</td>
+            <td class="text-center">{{ favorite.long_description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </body>
 </html>

@@ -10,7 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery-3.2.1
+//= require tether
+//= require bootstrap
 //= require rails-ujs
 //= require vue
 //= require vue-router
