@@ -27,3 +27,9 @@ var favorites = new Vue({
   }
 
 });
+
+// component (global)
+Vue.component('tr-favorite', {
+  template: "#tr_component",
+  props: ['data']
+});

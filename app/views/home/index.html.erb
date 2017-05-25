@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-
-  <div class="jumbotron">
-    <h1 class="display-3 text-center">FAVORITE URLS</h1>
-  </div>
-
-  <div class="container">
-    
-    <div id="favorites">
-      <table class="table table-bordered table-hover">
-        <thead class="thead-inverse">
-          <th class="text-center">url</th>
-          <th class="text-center">short_description</th>
-          <th class="text-center">long_description</th>
-        </thead>
-        <tbody>
-          <tr v-for="favorite in favorites">
-            <td class="text-center">{{ favorite.url }}</td>
-            <td class="text-center">{{ favorite.short_description }}</td>
-            <td class="text-center">{{ favorite.long_description }}</td>
-          </tr>
-        </tbody>
-      </table>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-3 text-center">FAVORITE URLS</h1>
     </div>
 
-  </div>
-</body>
+    <div class="container">
+      
+      <div id="favorites">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-inverse">
+            <th class="text-center">url</th>
+            <th class="text-center">short_description</th>
+            <th class="text-center">long_description</th>
+          </thead>
+          <tbody>
+            <!-- custom component -->
+            <tr is="tr-favorite" v-for="favorite in favorites" :data="favorite">
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <!-- template for tr-favorite component -->
+    <template id="tr_component">
+      <tr>
+        <td>{{data.url}}</td>
+        <td>{{data.short_description}}</td>
+        <td>{{data.long_description}}</td>
+      </tr>
+    </template>
+
+  </body>
 </html>
