@@ -1,7 +1,15 @@
 var favorites = new Vue({
   el: '#favorites',
   data: {
-    favorites: []
+    favorites: [],
+    errors: {
+    },
+    editMode: false,
+    favorite: {
+      url: '',
+      short_description: '',
+      long_description: ''
+    }
   },
   methods: {
     ready: function(){
@@ -19,7 +27,12 @@ var favorites = new Vue({
           console.log(JSON.stringify(error));
         }
       });
-    }//ready
+    },//ready
+
+    showForm: function(favoriteId){
+      editMode = true;
+      alert(favoriteId);
+    }
     
   },//methods
   mounted(){
@@ -32,4 +45,6 @@ var favorites = new Vue({
 Vue.component('tr-favorite', {
   template: "#tr_component",
   props: ['data']
+});
+
 });

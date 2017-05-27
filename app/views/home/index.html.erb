@@ -17,22 +17,53 @@
             <th class="text-center">url</th>
             <th class="text-center">short_description</th>
             <th class="text-center">long_description</th>
+            <th class="text-center">actions</th>
           </thead>
           <tbody>
+  
             <!-- custom component -->
             <tr is="tr-favorite" v-for="favorite in favorites" :data="favorite">
             </tr>
+
           </tbody>
         </table>
+
+<!-- <div is="favorite-form" ></div> -->
+
+<div>
+  <div class="form-group">
+    <label for="url">Url:</label>
+    <input id="url" class="form-control" type="text" v-model="favorite.url">
+<!--     <span style="color: red;">{{errors.url}}</span>
+ -->  </div>
+
+  <div class="form-group">
+    <label for="short">Url:</label>
+    <input id="short" class="form-control" type="text" v-model="favorite.short_description">
+<!--     <span style="color: red;">{{errors.short}}</span>
+ -->  </div>
+
+  <div class="form-group">
+    <label for="long">Url:</label>
+    <textarea id="long" class="form-control" rows="10" v-model="favorite.long_description"></textarea>
+<!--     <span style="color: red;">{{errors.long}}</span>
+ -->  </div>
+
+    <button>Crear</button>           
+</div>
       </div>
 
     </div>
+
     <!-- template for tr-favorite component -->
     <template id="tr_component">
       <tr>
         <td>{{data.url}}</td>
         <td>{{data.short_description}}</td>
         <td>{{data.long_description}}</td>
+        <td>
+          <button class="btn-info" @click="favorites.showForm(data.id)">Edit</button>
+        </td>
       </tr>
     </template>
 
