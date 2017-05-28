@@ -5,7 +5,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: #dff0d8;">
       <h1 class="display-3 text-center">FAVORITE URLS</h1>
     </div>
 
@@ -30,7 +30,7 @@
 
 <!-- <div is="favorite-form" ></div> -->
 
-<div>
+<div style="background-color: #dff0d8; padding: 25px;">
   <div class="form-group">
     <label for="url">Url:</label>
     <input id="url" class="form-control" type="text" v-model="favorite.url">
@@ -49,7 +49,7 @@
 <!--     <span style="color: red;">{{errors.long}}</span>
  -->  </div>
 
-    <button>Crear</button>           
+    <button class="btn btn-success" @click="createFavorite()">Crear</button>           
 </div>
       </div>
 

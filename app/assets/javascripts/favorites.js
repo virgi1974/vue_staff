@@ -6,9 +6,6 @@ var favorites = new Vue({
     },
     editMode: false,
     favorite: {
-      url: '',
-      short_description: '',
-      long_description: ''
     }
   },
   methods: {
@@ -29,9 +26,29 @@ var favorites = new Vue({
       });
     },//ready
 
-    showForm: function(favoriteId){
-      editMode = true;
-      alert(favoriteId);
+    createFavorite: function(){
+      // editMode = true;
+      var that = this;
+      $.ajax({
+        url: '/favorite',
+        method: 'POST',
+        data: {
+          favorite: that.favorite,
+        },
+        dataType: 'json',
+        success: function(res){
+          alert("success");
+          that.errors = {};
+          that.favorite.url = '';
+          that.favorite.short_description = '';
+          that.favorite.long_description = '';
+          that.favorites.push(res);
+        },
+        error: function(res){
+          alert("error");
+          that.errors = res.responseJSON.errors;
+        }
+      })
     }
     
   },//methods
@@ -45,6 +62,4 @@ var favorites = new Vue({
 Vue.component('tr-favorite', {
   template: "#tr_component",
   props: ['data']
-});
-
 });
