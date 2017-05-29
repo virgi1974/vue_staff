@@ -4,7 +4,6 @@ var favorites = new Vue({
     favorites: [],
     errors: {
     },
-    editMode: false,
     favorite: {
     }
   },
@@ -61,5 +60,39 @@ var favorites = new Vue({
 // component (global)
 Vue.component('tr-favorite', {
   template: "#tr_component",
-  props: ['data']
+  props: ['data'],
+  data: function(){
+    return {
+      editMode: false,
+      errors: {}
+    }
+  },
+
+  methods: {
+    
+    updateFavorite: function(){
+      var that = this;
+      $.ajax({
+        url: '/favorite/' + that.data.id + '.json',
+        method: 'PUT',
+        data: {
+          favorite: that.data,
+        },
+        dataType: 'json',
+        success: function(res){
+          console.log("success");
+          that.errors = {};
+          that.favorite = res;
+          that.editMode = false;
+        },
+        error: function(error){
+          console.log(error);
+        }
+      })
+    }, //updateFavorite
+
+    changeEditState: function(){
+      editMode = true;
+    }
+  }
 });

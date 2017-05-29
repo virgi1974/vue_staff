@@ -12,7 +12,7 @@
     <div class="container">
       
       <div id="favorites">
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover differentTable">
           <thead class="thead-inverse">
             <th class="text-center">url</th>
             <th class="text-center">short_description</th>
@@ -58,14 +58,47 @@
     <!-- template for tr-favorite component -->
     <template id="tr_component">
       <tr>
-        <td>{{data.url}}</td>
-        <td>{{data.short_description}}</td>
-        <td>{{data.long_description}}</td>
         <td>
-          <button class="btn-info" @click="favorites.showForm(data.id)">Edit</button>
+          <div v-if="editMode">
+            <input type="text" v-model="data.url">
+          </div>
+          <div v-else>
+            {{data.url}}
+          </div>
         </td>
+
+        <td>
+          <div v-if="editMode">
+            <input type="text" v-model="data.short_description">
+          </div>
+          <div v-else>
+            {{data.short_description}}
+          </div>
+        </td>
+
+        <td>
+          <div v-if="editMode">
+            <input type="text" v-model="data.long_description">
+          </div>
+          <div v-else>
+            {{data.long_description}}
+          </div>
+        </td>
+
+        <td>
+          <button v-if="editMode" @click="updateFavorite" class="btn btn-primary btn-block">Save</button>
+          <button v-else @click="editMode = true">Edit</button>
+        </td>
+
       </tr>
     </template>
 
+
   </body>
+
+  <style>
+  .differentTable, .differentTable td{
+    border: 4px solid #dff0d8;
+  }
+  </style>
 </html>

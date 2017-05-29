@@ -14,6 +14,18 @@ class FavoriteController < ApplicationController
 
   end
 
+  def update
+    favorite = Favorite.find(params[:id])
+
+    respond_to do |format|
+      if favorite.update(favorite_params)
+        format.json { render json: favorite }
+      else
+        format.json { render json: {:errors => favorite.errors, :status => 422}}
+      end
+    end    
+  end
+
   private
 
   def favorite_params
