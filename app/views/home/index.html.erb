@@ -91,6 +91,7 @@
         <td>
           <button v-if="editMode" @click="updateFavorite" class="btn btn-primary btn-block">Save</button>
           <button v-else @click="editMode = true" class="btn btn-outline-primary btn-block">Edit</button>
+          <button v-if="!editMode" @click="destroyFavorite" class="btn btn-danger">Delete</button>
         </td>
 
       </tr>

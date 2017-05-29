@@ -93,8 +93,15 @@ Vue.component('tr-favorite', {
       })
     }, //updateFavorite
 
-    changeEditState: function(){
-      editMode = true;
+    destroyFavorite: function(){
+      var that = this;
+      $.ajax({
+        method: 'DELETE',
+        url: '/favorite/' + that.data.id  + '.json',
+        success: function(res){
+          that.$remove();
+        }
+      })
     }
   }
 });
