@@ -1,6 +1,7 @@
 var favorites = new Vue({
   el: '#favorites',
   data: {
+    showCreateForm: false,
     favorites: [],
     errors: {
     },
@@ -36,15 +37,16 @@ var favorites = new Vue({
         },
         dataType: 'json',
         success: function(res){
-          alert("success");
+          console.log("success");
           that.errors = {};
           that.favorite.url = '';
           that.favorite.short_description = '';
           that.favorite.long_description = '';
+          that.showCreateForm = false;
           that.favorites.push(res);
         },
         error: function(res){
-          alert("error");
+          console.log("error");
           that.errors = res.responseJSON.errors;
         }
       })
