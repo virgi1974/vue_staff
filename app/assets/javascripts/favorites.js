@@ -1,3 +1,13 @@
+Vue.http.interceptors.push({
+  request: function(request){
+    Vue.http.headers.common['X-CSRF-Token'] = $('[name="csrf-token"]').attr('content');
+    return request;
+  },
+  response: function(response){
+    return response;
+  }
+})
+
 var favorites = new Vue({
   el: '#favorites',
   data: {
@@ -27,29 +37,41 @@ var favorites = new Vue({
     },//ready
 
     createFavorite: function(){
-      // editMode = true;
+      // var that = this;
+      // $.ajax({
+      //   url: '/favorite',
+      //   method: 'POST',
+      //   data: {
+      //     favorite: that.favorite,
+      //   },
+      //   dataType: 'json',
+      //   success: function(res){
+      //     console.log("success");
+      //     that.errors = {};
+      //     that.favorite.url = '';
+      //     that.favorite.short_description = '';
+      //     that.favorite.long_description = '';
+      //     that.showCreateForm = false;
+      //     that.favorites.push(res);
+      //   },
+      //   error: function(res){
+      //     console.log("error");
+      //     that.errors = res.responseJSON.errors;
+      //   }
+      // })
+
+      // using
       var that = this;
-      $.ajax({
-        url: '/favorite',
-        method: 'POST',
-        data: {
-          favorite: that.favorite,
-        },
-        dataType: 'json',
-        success: function(res){
-          console.log("success");
-          that.errors = {};
-          that.favorite.url = '';
-          that.favorite.short_description = '';
-          that.favorite.long_description = '';
-          that.showCreateForm = false;
-          that.favorites.push(res);
-        },
-        error: function(res){
-          console.log("error");
-          that.errors = res.responseJSON.errors;
-        }
-      })
+      this.$http.post('/favorite.json', { favorite: this.favorite }).then(
+            function(response) {
+              that.errors = {};
+              that.favorite = {};
+              that.favorites.push(response.data);
+            },
+            function(response) {
+              that.errors = response.data.errors
+            }
+          )
     }
     
   },//methods
@@ -94,12 +116,15 @@ Vue.component('tr-favorite', {
     }, //updateFavorite
 
     destroyFavorite: function(){
+      // debugger;
       var that = this;
       $.ajax({
         method: 'DELETE',
         url: '/favorite/' + that.data.id  + '.json',
         success: function(res){
-          that.$remove();
+          // debugger;
+          var index = that.$parent.$children.indexOf(that); 
+          that.$parent.$children.splice(index,1);
         }
       })
     }
