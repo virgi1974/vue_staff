@@ -4,105 +4,14 @@
     <meta charset="UTF-8">
     <title>Document</title>
   </head>
-  <body>
+  <body id="body">
     <div class="jumbotron" style="background-color: #dff0d8;">
-      <h1 class="display-3 text-center">FAVORITE URLS</h1>
+      <h1 class="display-3 text-center">TRASTEANDO CON VUE</h1>
     </div>
 
-    <div class="container">
-      
-      <div id="favorites">
-        <table class="table table-bordered table-hover differentTable">
-          <thead class="thead-inverse">
-            <th class="text-center">url</th>
-            <th class="text-center">short_description</th>
-            <th class="text-center">long_description</th>
-            <th class="text-center">actions</th>
-          </thead>
-          <tbody>
-  
-            <!-- custom component -->
-            <tr is="tr-favorite" v-for="favorite in favorites" :data="favorite">
-            </tr>
-
-          </tbody>
-        </table>
-<br>
-<hr>
-<br>
-
-<button @click="showCreateForm = !showCreateForm" class="btn btn-block btn-primary">Add New Url</button>
-
-<div v-if="showCreateForm"  style="background-color: #dff0d8; padding: 25px;">
-  <div class="form-group">
-    <label for="url">Url:</label>
-    <input id="url" class="form-control" type="text" v-model="favorite.url">
-<!--     <span style="color: red;">{{errors.url}}</span>
- -->  </div>
-
-  <div class="form-group">
-    <label for="short">Short Description:</label>
-    <input id="short" class="form-control" type="text" v-model="favorite.short_description">
-<!--     <span style="color: red;">{{errors.short}}</span>
- -->  </div>
-
-  <div class="form-group">
-    <label for="long">Long Description:</label>
-    <textarea id="long" class="form-control" rows="10" v-model="favorite.long_description"></textarea>
-<!--     <span style="color: red;">{{errors.long}}</span>
- -->  </div>
-
-    <button class="btn btn-success" @click="createFavorite()">Crear</button>           
-</div>
-      </div>
-
+    <div id="app">
+      {{nombre}}
     </div>
-
-    <!-- template for tr-favorite component -->
-    <template id="tr_component">
-      <tr>
-        <td>
-          <div v-if="editMode">
-            <input type="text" v-model="data.url">
-          </div>
-          <div v-else>
-            {{data.url}}
-          </div>
-        </td>
-
-        <td>
-          <div v-if="editMode">
-            <input type="text" v-model="data.short_description">
-          </div>
-          <div v-else>
-            {{data.short_description}}
-          </div>
-        </td>
-
-        <td>
-          <div v-if="editMode">
-            <input type="text" v-model="data.long_description">
-          </div>
-          <div v-else>
-            {{data.long_description}}
-          </div>
-        </td>
-
-        <td>
-          <button v-if="editMode" @click="updateFavorite" class="btn btn-primary btn-block">Save</button>
-          <button v-else @click="editMode = true" class="btn btn-outline-primary btn-block">Edit</button>
-          <button v-if="!editMode" @click="destroyFavorite" class="btn btn-danger">Delete</button>
-        </td>
-
-      </tr>
-    </template>
-
 
   </body>
-
-  <style>
-  .differentTable, .differentTable td{
-    border: 4px solid #dff0d8;
-  }
-  </style>
 </html>
