@@ -10,7 +10,7 @@ var vueInstance = new Vue({
       {nombre: 'Miguel'},
       {nombre: 'Sergio'},
     ],
-    friend: ''
+    mate: ''
   },
   methods: {
     ready: function(){
@@ -32,9 +32,9 @@ var vueInstance = new Vue({
       });
     },//ready
 
-    addFriend: function(friend){
-      this.friends.push({nombre: friend});
-      this.friend = '';
+    addFriend: function(mateName){
+      this.friends.push({nombre: mateName});
+      this.mate = '';
     },
     
   },//methods
