@@ -10,7 +10,11 @@ var vueInstance = new Vue({
       {nombre: 'Miguel'},
       {nombre: 'Sergio'},
     ],
-    mate: ''
+    mate: '',
+    miBooleano: true,
+    miUrl: 'http://virgilio.com',
+    clase1: 'clase-1',
+    clase2: 'clase-2'
   },
   methods: {
     ready: function(){

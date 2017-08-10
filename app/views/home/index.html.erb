@@ -28,6 +28,9 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#list" role="tab">List</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#varios" role="tab">Varios</a>
+        </li>
       </ul>
 
       <!-- Tab panes -->
@@ -84,10 +87,56 @@
           <input type="text" v-model="mate" placeholder="add new friends">
           <input type="submit" value="new friend" @click="addFriend(mate)">
         </div>
-      </div>
+
+        <!-- --------------------------- VARIOS ------------------------------------ -->
+        <div class="tab-pane" id="varios" role="tabpanel">
+          <!-- no funciona!!!! -->
+          <p>{{"virgilio" | uppercase }}</p>
+
+          <div class="jumbotron">
+            v-if
+          </div>
+          <button @click="miBooleano = ! miBooleano" class="btn btn-primary">cambia el valor de "miBooleano"</button>
+          <span>valor actual {{miBooleano}}</span>
+          <div v-if="miBooleano === false">
+            v-if elimina el elemento del DOM
+          </div>
+          <br>
+          <div v-if="miBooleano">
+            <h1>Solo se muestra si el valor de la variable
+              <small>
+                <em>
+                  miBooleano
+                </em>
+              </small> es true
+            </h1>
+          </div>
+
+          <div class="jumbotron">
+            bind:class
+          </div>
+          <p v-bind:class="clase1">usando clase1 a partir de data</p>
+          <p :class="clase2">usando clase2 a partir de data</p>
+
+          <div class="jumbotron">
+            bind:href
+          </div>
+          <a v-bind:href="miUrl" target="_blank">go to virgilio.com</a>
+
+        </div>
+
+      </div> <!-- tab content -->
       
     </div> <!--  end of Vue instance container -->
 
+<style>
+  .clase-1 {
+    color: red;
+  }
+  .clase-2 {
+    color: blue;
+  }
+</style>
 
   </body>
 </html>
