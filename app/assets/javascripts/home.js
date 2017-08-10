@@ -3,7 +3,14 @@ var vueInstance = new Vue({
   data: {
     nombre: "virgilio",
     user: {},
-    favorites: []
+    favorites: [],
+    friends: [
+      {nombre: 'David'},
+      {nombre: 'Nacho'},
+      {nombre: 'Miguel'},
+      {nombre: 'Sergio'},
+    ],
+    friend: ''
   },
   methods: {
     ready: function(){
@@ -24,6 +31,11 @@ var vueInstance = new Vue({
         }
       });
     },//ready
+
+    addFriend: function(friend){
+      this.friends.push({nombre: friend});
+      this.friend = '';
+    },
     
   },//methods
   mounted(){

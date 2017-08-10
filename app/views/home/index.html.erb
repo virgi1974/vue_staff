@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#binding" role="tab">2 Way Binding</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#list" role="tab">List</a>
+        </li>
       </ul>
 
       <!-- Tab panes -->
@@ -68,9 +71,21 @@
           <br>
           <input type="text" v-model="nombre">
         </div>
+
+        <!-- --------------------------- LIST ------------------------------------ -->
+        <div class="tab-pane" id="list" role="tabpanel">
+          <ul v-for="friend in friends">
+            <li>
+              {{friend.nombre}}
+            </li>
+          </ul>
+          <hr>
+          <input type="text" v-model="friend">
+          <input type="submit" value="new friend" v-on:click="addFriend(friend)">
+        </div>
       </div>
       
-    </div>
+    </div> <!--  end of Vue instance container -->
 
 
   </body>
