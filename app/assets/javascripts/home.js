@@ -14,7 +14,8 @@ var vueInstance = new Vue({
     miBooleano: true,
     miUrl: 'http://virgilio.com',
     clase1: 'clase-1',
-    clase2: 'clase-2'
+    clase2: 'clase-2',
+    mensaje: ''
   },
   methods: {
     ready: function(){
@@ -43,6 +44,11 @@ var vueInstance = new Vue({
 
     removeFriendFromList: function(friend){
       this.friends.pop(friend);
+    },
+
+    miAccion: function(evt){
+      evt.preventDefault();
+      alert("normal behaviour for link has been changed");
     },
     
   },//methods
