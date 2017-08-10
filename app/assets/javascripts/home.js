@@ -36,6 +36,10 @@ var vueInstance = new Vue({
       this.friends.push({nombre: mateName});
       this.mate = '';
     },
+
+    removeFriendFromList: function(friend){
+      this.friends.pop(friend);
+    },
     
   },//methods
   mounted(){

@@ -77,11 +77,12 @@
           <ul v-for="friend in friends">
             <li>
               {{friend.nombre}}
+              <a href="#" @click="removeFriendFromList(friend)" style="background-color:red; color: white; padding: 1px;">X</a>
             </li>
           </ul>
           <hr>
           <input type="text" v-model="mate" placeholder="add new friends">
-          <input type="submit" value="new friend" v-on:click="addFriend(mate)">
+          <input type="submit" value="new friend" @click="addFriend(mate)">
         </div>
       </div>
       
