@@ -1,11 +1,13 @@
 class HomeController < ApplicationController
 
   def index
-    @favorites = current_user.favorites.all
+    favorites = current_user.favorites.all
 
     respond_to do |format|
       format.html
-      format.json { render json: @favorites }
+
+      initial_data = { :current_user => current_user, :favorites => favorites }
+      format.json { render json: initial_data }
     end
   end
   

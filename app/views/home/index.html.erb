@@ -10,7 +10,22 @@
     </div>
 
     <div id="app">
-      {{nombre}}
+      <div class="text-center">
+        <p class="badge badge-info">id: {{user.id}}</p>
+        <p class="badge badge-info">email: {{user.email}}</p>
+      </div>
+
+      <ul v-for="favorite in favorites" v-if="favorites" style="list-style-type: none">
+        <li>
+          <pre class="badge badge-warning">
+            {{favorite.url}}&nbsp;&nbsp;
+          </pre>
+          <pre class="badge badge-warning">
+            {{favorite.short_description}}
+          </pre>
+        </li>
+      </ul>
+      
     </div>
 
   </body>
