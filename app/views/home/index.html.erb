@@ -23,7 +23,7 @@
           <a class="nav-link" data-toggle="tab" href="#favorites" role="tab">Favorite Resources</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
+          <a class="nav-link" data-toggle="tab" href="#binding" role="tab">2 Way Binding</a>
         </li>
       </ul>
 
@@ -61,7 +61,13 @@
             </li>
           </ul>
         </div>
-        <div class="tab-pane" id="settings" role="tabpanel">D</div>
+
+        <!-- --------------------------- 2 WAY DATA BINDING ------------------------------------ -->
+        <div class="tab-pane" id="binding" role="tabpanel">
+          {{nombre}}
+          <br>
+          <input type="text" v-model="nombre">
+        </div>
       </div>
       
     </div>
