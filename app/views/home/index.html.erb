@@ -10,23 +10,62 @@
     </div>
 
     <div id="app">
-      <div class="text-center">
-        <p class="badge badge-info">id: {{user.id}}</p>
-        <p class="badge badge-info">email: {{user.email}}</p>
-      </div>
 
-      <ul v-for="favorite in favorites" v-if="favorites" style="list-style-type: none">
-        <li>
-          <pre class="badge badge-warning">
-            {{favorite.url}}&nbsp;&nbsp;
-          </pre>
-          <pre class="badge badge-warning">
-            {{favorite.short_description}}
-          </pre>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#data" role="tab">Vue Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#user" role="tab">Current User</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#favorites" role="tab">Favorite Resources</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
         </li>
       </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- --------------------------- VUE DATA ------------------------------------ -->
+        <div class="tab-pane active" id="data" role="tabpanel">
+          <div class="jumbotron" style="background-color: darkgray;">
+            DATA
+            <pre>
+              {{ $data | json}}
+            </pre>
+          </div>
+        </div>
+
+        <!-- --------------------------- CURRENT USER ------------------------------------ -->
+        <div class="tab-pane" id="user" role="tabpanel">
+          <div class="text-center">
+            <p class="badge badge-info">id: {{user.id}}</p>
+            <br>
+            <p class="badge badge-info">email: {{user.email}}</p>
+          </div>
+        </div>
+
+        <!-- --------------------------- FAVORITE RESOURCES ------------------------------------ -->
+        <div class="tab-pane" id="favorites" role="tabpanel">
+          <ul v-for="favorite in favorites" v-if="favorites" style="list-style-type: none">
+            <li>
+              <pre class="badge badge-warning">
+                {{favorite.url}}&nbsp;&nbsp;
+              </pre>
+              <pre class="badge badge-warning">
+                {{favorite.short_description}}
+              </pre>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-pane" id="settings" role="tabpanel">D</div>
+      </div>
       
     </div>
+
 
   </body>
 </html>
