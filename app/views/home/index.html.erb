@@ -40,111 +40,37 @@
       <div class="tab-content">
         <!-- --------------------------- VUE DATA ------------------------------------ -->
         <div class="tab-pane active" id="data" role="tabpanel">
-          <div class="jumbotron" style="background-color: darkgray;">
-            DATA
-            <pre>
-              {{ $data | json}}
-            </pre>
-          </div>
+          <%= render "data" %>
         </div>
 
         <!-- --------------------------- CURRENT USER ------------------------------------ -->
         <div class="tab-pane" id="user" role="tabpanel">
-          <div class="text-center">
-            <p class="badge badge-info">id: {{user.id}}</p>
-            <br>
-            <p class="badge badge-info">email: {{user.email}}</p>
-          </div>
+          <%= render "current_user" %>
         </div>
 
         <!-- --------------------------- FAVORITE RESOURCES ------------------------------------ -->
         <div class="tab-pane" id="favorites" role="tabpanel">
-          <ul v-for="favorite in favorites" v-if="favorites" style="list-style-type: none">
-            <li>
-              <pre class="badge badge-warning">
-                {{favorite.url}}&nbsp;&nbsp;
-              </pre>
-              <pre class="badge badge-warning">
-                {{favorite.short_description}}
-              </pre>
-            </li>
-          </ul>
+          <%= render "favorite_resources" %>
         </div>
 
         <!-- --------------------------- 2 WAY DATA BINDING ------------------------------------ -->
         <div class="tab-pane" id="binding" role="tabpanel">
-          {{nombre}}
-          <br>
-          <input type="text" v-model="nombre">
+          <%= render "2_way_data_binding" %>
         </div>
 
         <!-- --------------------------- LIST ------------------------------------ -->
         <div class="tab-pane" id="list" role="tabpanel">
-          <ul v-for="friend in friends">
-            <li>
-              {{friend.nombre}}
-              <a href="#" @click="removeFriendFromList(friend)" style="background-color:red; color: white; padding: 1px;">X</a>
-            </li>
-          </ul>
-          <hr>
-          <input type="text" v-model="mate" placeholder="add new friends">
-          <input type="submit" value="new friend" @click="addFriend(mate)">
+          <%= render "list" %>
         </div>
 
         <!-- --------------------------- VARIOS ------------------------------------ -->
         <div class="tab-pane" id="varios" role="tabpanel">
-          <!-- no funciona!!!! -->
-          <p>{{"virgilio" | uppercase }}</p>
-
-          <div class="jumbotron">
-            v-if
-          </div>
-          <button @click="miBooleano = ! miBooleano" class="btn btn-primary">cambia el valor de "miBooleano"</button>
-          <span>valor actual {{miBooleano}}</span>
-          <div v-if="miBooleano === false">
-            v-if elimina el elemento del DOM
-          </div>
-          <br>
-          <div v-if="miBooleano">
-            <h1>Solo se muestra si el valor de la variable
-              <small>
-                <em>
-                  miBooleano
-                </em>
-              </small> es true
-            </h1>
-          </div>
-
-          <div class="jumbotron">
-            bind:class
-          </div>
-          <p v-bind:class="clase1">usando clase1 a partir de data</p>
-          <p :class="clase2">usando clase2 a partir de data</p>
-
-          <div class="jumbotron">
-            bind:href
-          </div>
-          <a v-bind:href="miUrl" target="_blank">go to virgilio.com</a>
+          <%= render "varios" %>
         </div>
 
         <!-- --------------------------- EVENTOS ------------------------------------ -->
         <div class="tab-pane" id="events" role="tabpanel">
-          <br>
-          <a :href="miUrl" @click="miAccion" target="_blank">mi link con preventDefault</a>
-
-          <div class="jumbotron">
-            events
-          </div>
-
-          <form action="">
-            <p class="alert-danger" v-if="!mensaje">debes introducir un valor en el formulario</p>
-            <textarea name="" id="" cols="30" rows="10" placeholder="escribe tu mensaje" required="" v-model="mensaje"></textarea>
-            <br>
-            <!-- solo mostramos el botón cuando tenga contenido el textarea(el modelo al que
-            hemos bindeado el textarea) -->
-            <input type="submit" value="Enviar mensaje" v-show="mensaje">
-          </form>
-
+          <%= render "events" %>
         </div>
 
       </div> <!-- tab content -->

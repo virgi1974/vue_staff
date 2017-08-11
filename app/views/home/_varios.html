@@ -1,0 +1,32 @@
+<!-- no funciona!!!! -->
+<p>{{"virgilio" | uppercase }}</p>
+
+<div class="jumbotron">
+  v-if
+</div>
+<button @click="miBooleano = ! miBooleano" class="btn btn-primary">cambia el valor de "miBooleano"</button>
+<span>valor actual {{miBooleano}}</span>
+<div v-if="miBooleano === false">
+  v-if elimina el elemento del DOM
+</div>
+<br>
+<div v-if="miBooleano">
+  <h1>Solo se muestra si el valor de la variable
+    <small>
+      <em>
+        miBooleano
+      </em>
+    </small> es true
+  </h1>
+</div>
+
+<div class="jumbotron">
+  bind:class
+</div>
+<p v-bind:class="clase1">usando clase1 a partir de data</p>
+<p :class="clase2">usando clase2 a partir de data</p>
+
+<div class="jumbotron">
+  bind:href
+</div>
+<a v-bind:href="miUrl" target="_blank">go to virgilio.com</a>
