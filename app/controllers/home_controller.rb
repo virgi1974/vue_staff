@@ -13,5 +13,8 @@ class HomeController < ApplicationController
 
   def index_2
   end
+
+  def webpack
+  end
   
 end
