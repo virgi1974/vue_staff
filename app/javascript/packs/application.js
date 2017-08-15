@@ -7,7 +7,19 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import MyName from 'components/header';
+// import MyName from 'components/header';
+import Vue from 'vue'
+import App from './app.vue'
 
 console.log('Hello World from Webpacker');
-console.log(MyName);
+// console.log(MyName);
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.appendChild(document.createElement('hello'))
+  const app = new Vue({
+    el: '#app',
+    render: h => h(App)
+    }).$mount('hello')
+
+  // console.log(app)
+})
