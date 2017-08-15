@@ -1,0 +1,7 @@
+{
+  "app.css": "http://0.0.0.0:8080/packs/app.css",
+  "app.js": "http://0.0.0.0:8080/packs/app.js",
+  "application.js": "http://0.0.0.0:8080/packs/application.js",
+  "hello_vue.css": "http://0.0.0.0:8080/packs/hello_vue.css",
+  "hello_vue.js": "http://0.0.0.0:8080/packs/hello_vue.js"
+}
