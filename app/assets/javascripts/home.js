@@ -1,4 +1,5 @@
-var vueInstance = new Vue({
+// ----------------------------- index -------------------------------
+new Vue({
   el: '#app',
   data: {
     nombre: "virgilio",
@@ -57,3 +58,16 @@ var vueInstance = new Vue({
   }
 
 });
+
+// ----------------------------- index2-------------------------------
+new Vue({
+  el: '#app2',
+  data: {
+    nombre: '',
+    edad: '',
+    sexo: '',
+    email: ''
+  }
+
+});
+

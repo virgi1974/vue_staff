@@ -1,0 +1,34 @@
+<!-- no mostraremos el botón hasta que estén con valor los 4 inputs -->
+<br>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form action="">
+
+        <div class="form-group">
+          <input type="text" placeholder="Nombre" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <input type="number" placeholder="Edad" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="Sexo" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <input type="email" placeholder="Email" class="form-control">
+        </div>
+
+        <input type="submit" class="btn btn-info pull-right" value="Enviar Datos">
+
+      </form>
+    </div>
+  </div>
+  <br>
+  <pre style="background-color: lightgray;">
+    {{ $data | json }}
+  </pre>
+
+</div>

@@ -10,5 +10,8 @@ class HomeController < ApplicationController
       format.json { render json: initial_data }
     end
   end
+
+  def index_2
+  end
   
 end

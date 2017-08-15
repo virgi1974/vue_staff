@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  </head>
+  <body id="body">
+    <div class="jumbotron" style="background-color: #dff0d8;">
+      <h1 class="display-3 text-center">TRASTEANDO CON VUE</h1>
+    </div>
+
+    <div id="app2">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#computed_properties" role="tab">Computed Properties</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+
+        <!-- --------------------------- COMPUTED PROPERTIES ------------------------------------ -->
+        <div class="tab-pane" id="computed_properties" role="tabpanel">
+          <%= render "computed_properties" %>
+        </div>
+
+      </div> <!-- tab content -->
+      
+    </div> <!--  end of Vue instance container -->
+
+  </body>
+</html>
