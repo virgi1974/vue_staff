@@ -15,8 +15,4 @@
 //= require tether
 //= require bootstrap
 //= require rails-ujs
-//= require vue
-//= require vue-router
-//= require vue-resource
-//= require vuex
 //= require_tree .
