@@ -1,0 +1,15 @@
+<br>
+<a :href="miUrl" @click="miAccion" target="_blank">mi link con preventDefault</a>
+
+<div class="jumbotron">
+  events
+</div>
+
+<form action="">
+  <p class="alert-danger" v-if="!mensaje">debes introducir un valor en el formulario</p>
+  <textarea name="" id="" cols="30" rows="10" placeholder="escribe tu mensaje" required="" v-model="mensaje"></textarea>
+  <br>
+  <!-- solo mostramos el botón cuando tenga contenido el textarea(el modelo al que
+  hemos bindeado el textarea) -->
+  <input type="submit" value="Enviar mensaje" v-show="mensaje">
+</form>

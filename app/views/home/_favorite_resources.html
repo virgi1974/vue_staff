@@ -1,0 +1,10 @@
+<ul v-for="favorite in favorites" v-if="favorites" style="list-style-type: none">
+  <li>
+    <pre class="badge badge-warning">
+      {{favorite.url}}&nbsp;&nbsp;
+    </pre>
+    <pre class="badge badge-warning">
+      {{favorite.short_description}}
+    </pre>
+  </li>
+</ul>
