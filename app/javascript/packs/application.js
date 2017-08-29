@@ -11,12 +11,22 @@
 import Vue from 'vue'
 import App from './app.vue'
 
+// import Router from 'vue-router'
+// import Routes from '../routes/routes';
+// Vue.use(Router)
+
+// const router = new Router({
+//    routes: Routes,
+//    mode: 'history', 
+// });
+
 console.log('Hello World from Webpacker');
 // console.log(MyName);
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
   const app = new Vue({
+    // router: router,
     el: '#app',
     render: h => h(App)
     }).$mount('hello')
