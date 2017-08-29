@@ -6,19 +6,19 @@
       <form action="">
 
         <div class="form-group">
-          <input type="text" placeholder="Nombre" class="form-control">
+          <input v-model="nombre" type="text" placeholder="Nombre" class="form-control">
         </div>
         
         <div class="form-group">
-          <input type="number" placeholder="Edad" class="form-control">
+          <input v-model="edad" type="number" placeholder="Edad" class="form-control">
         </div>
         
         <div class="form-group">
-          <input type="text" placeholder="Sexo" class="form-control">
+          <input v-model="sexo" type="text" placeholder="Sexo" class="form-control">
         </div>
 
         <div class="form-group">
-          <input type="email" placeholder="Email" class="form-control">
+          <input v-model="email" type="email" placeholder="Email" class="form-control">
         </div>
 
         <input type="submit" class="btn btn-info pull-right" value="Enviar Datos">
@@ -27,6 +27,9 @@
     </div>
   </div>
   <br>
+
+  <!-- <p>{{joinAllFields}}</p> -->
+
   <pre style="background-color: lightgray;">
     {{ $data | json }}
   </pre>

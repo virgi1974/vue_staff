@@ -6,7 +6,7 @@
 
 import Vue from 'vue'
 import App from './app.vue'
-import Jumbotron from '../components/jumbotron'
+// import Jumbotron from '../components/jumbotron'
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
